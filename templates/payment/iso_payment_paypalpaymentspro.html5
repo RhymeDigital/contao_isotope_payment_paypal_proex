@@ -1,0 +1,255 @@
+<form action="<?php echo $this->action; ?>" method="post" class="paypalpro">
+<form action="<?php echo $this->action; ?>" method="post" class="paypalpro">
+	<link rel="stylesheet" href="system/modules/isotope_payment_paypal_proex/assets/css/paypalpro.css" type="text/css" media="all" />
+<span style="text-align:left;color:red;"><?php echo $this->submitError;?></span>	 
+<div class="cc_info" style="display: block;">
+      <div class="cc_info_header">  Credit or Debit Card Information <img src="system/modules/isotope_payment_paypal_proex/assets/images/paypalpro.gif" border="0"></div>
+      <div class="cc_info_body">
+        <input type="hidden" name="PaymentAction" value="Sale">
+				<div class="field">
+					<label>Credit Card Type:</label>
+					<select name="CreditCardType">
+					<?php for ($i=0; $i<count($this->paypal_allowedcc_types); $i++){ ?>
+						 <option 
+						 <?php if ($this->CreditCardType == $this->paypal_allowedcc_types[$i]) { echo 'selected="Selected" '; }?>
+						 value=<?php echo '"'.$this->paypal_allowedcc_types[$i].'"';?>><?php echo $this->paypal_allowedcc_types[$i];?></option>
+          <?php  } ?>
+					</select>
+				</div>
+
+        <div class="field">
+				   <label for="BillingFirstName">Name on Card</label>
+            <input id="BillingFirstName" name="BillingFirstName" size="25" value="<?php echo $this->BillingFirstName;?>">
+			   </div>    
+				<div class="field">
+					<label for="CreditCardNumber">Credit Card Number:</label>
+					<input size="20" autocomplete="off" name="CreditCardNumber" id="CreditCardNumber" value="<?php echo $this->CreditCardNumber;?>">
+				</div>
+				<div class="field">
+					<label for="CVV2">Security Code: <span>(last 3 digit # on back of card)</span></label>
+					<input size="5" autocomplete="off" name="CVV2" id="CVV2" value="<?php echo $this->CVV2;?>" class="security">
+				</div>
+				
+				<div class="field">
+					<label for="IssueNumber">Issue Number: (Maestro only)</label>
+					<input size="5" autocomplete="off" name="IssueNumber" id="IssueNumber" value="<?php echo $this->IssueNumber;?>" class="issue">
+				</div>	
+					
+				<div class="field">
+					<label>Expiration Date:</label>
+					<select class="ExpMonth" name="ExpMonth">
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+					<select class="ExpYear" name="ExpYear">
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+					</select>
+				</div>
+      </div>
+    </div>
+
+
+<?php if ($_SESSION['CCBILLING'] == 1): ?>
+
+<div class="cc_info" style="display: block;">
+      <div class="cc_info_header">Billing Address (must be card holder's address)</div>
+      <div class="cc_info_body">
+           <div class="field">
+				<label for="BillingStreet1">Address Line 1</label>
+				<input name="BillingStreet1" size="25" id="BillingStreet1" value="<?php echo $this->BillingStreet1;?>">
+			</div>
+            <div class="field">
+				<label for="BillingStreet2">Address Line 2</label>
+				<input name="BillingStreet2" size="25" id="BillingStreet2" value="<?php echo $this->BillingStreet2;?>" />
+            </div>
+			<div class="field">
+				<label for="BillingCityName">Town/City </label>
+				<input name="BillingCityName" id="BillingCityName" size="25" value="<?php echo $this->BillingCityName;?>">
+            </div>
+            <div class="field">
+				<label for="BillingPostalCode">Postcode</label>
+				<input name="BillingPostalCode" id="BillingPostalCode" size="25" value="<?php echo $this->BillingPostalCode;?>" />
+            </div>
+            <div class="field">
+				<label for="BillingStateOrProvince">County</label>
+                <select name="BillingStateOrProvince" id="BillingStateOrProvince">
+					<option value=""></option>
+					<optgroup label="England">
+						<option>Bedfordshire</option>
+						<option>Berkshire</option>
+						<option>Bristol</option>
+						<option>Buckinghamshire</option>
+						<option>Cambridgeshire</option>
+						<option>Cheshire</option>
+						<option>City of London</option>
+						<option>Cornwall</option>
+						<option>Cumbria</option>
+						<option>Derbyshire</option>
+						<option>Devon</option>
+						<option>Dorset</option>
+						<option>Durham</option>
+						<option>East Riding of Yorkshire</option>
+						<option>East Sussex</option>
+						<option>Essex</option>
+						<option>Gloucestershire</option>
+						<option>Greater London</option>
+						<option>Greater Manchester</option>
+						<option>Hampshire</option>
+						<option>Herefordshire</option>
+						<option>Hertfordshire</option>
+						<option>Isle of Wight</option>
+						<option>Kent</option>
+						<option>Lancashire</option>
+						<option>Leicestershire</option>
+						<option>Lincolnshire</option>
+						<option>Merseyside</option>
+						<option>Norfolk</option>
+						<option>North Yorkshire</option>
+						<option>Northamptonshire</option>
+						<option>Northumberland</option>
+						<option>Nottinghamshire</option>
+						<option>Oxfordshire</option>
+						<option>Rutland</option>
+						<option>Shropshire</option>
+						<option>Somerset</option>
+						<option>South Yorkshire</option>
+						<option>Staffordshire</option>
+						<option>Suffolk</option>
+						<option>Surrey</option>
+						<option>Tyne and Wear</option>
+						<option>Warwickshire</option>
+						<option>West Midlands</option>
+						<option>West Sussex</option>
+						<option>West Yorkshire</option>
+						<option>Wiltshire</option>
+						<option>Worcestershire</option>
+					</optgroup>
+					<optgroup label="Scotland">
+						<option>Aberdeenshire</option>
+						<option>Angus</option>
+						<option>Argyllshire</option>
+						<option>Ayrshire</option>
+						<option>Banffshire</option>
+						<option>Berwickshire</option>
+						<option>Buteshire</option>
+						<option>Cromartyshire</option>
+						<option>Caithness</option>
+						<option>Clackmannanshire</option>
+						<option>Dumfriesshire</option>
+						<option>Dunbartonshire</option>
+						<option>East Lothian</option>
+						<option>Fife</option>
+						<option>Inverness-shire</option>
+						<option>Kincardineshire</option>
+						<option>Kinross</option>
+						<option>Kirkcudbrightshire</option>
+						<option>Lanarkshire</option>
+						<option>Midlothian</option>
+						<option>Morayshire</option>
+						<option>Nairnshire</option>
+						<option>Orkney</option>
+						<option>Peeblesshire</option>
+						<option>Perthshire</option>
+						<option>Renfrewshire</option>
+						<option>Ross-shire</option>
+						<option>Roxburghshire</option>
+						<option>Selkirkshire</option>
+						<option>Shetland</option>
+						<option>Stirlingshire</option>
+						<option>Sutherland</option>
+						<option>West Lothian</option>
+						<option>Wigtownshire</option>
+					</optgroup>
+					<optgroup label="Wales">
+						<option>Anglesey</option>
+						<option>Brecknockshire</option>
+					</optgroup>
+				</select>
+			</div>
+            <div class="field">
+				<label for="BillingCountry">Country</label>
+				<select name="BillingCountry" id="BillingCountry">
+					<option value="US">United States</option>
+					<option value="AI">Anguilla</option>
+					<option value="AR">Argentina</option>
+					<option value="AU">Australia</option>
+					<option value="AT">Austria</option>
+					<option value="BE">Belgium</option>
+					<option value="BR">Brazil</option>
+					<option value="CA">Canada</option>
+					<option value="CL">Chile</option>
+					<option value="C2">China</option>
+					<option value="CR">Costa Rica</option>
+					<option value="CY">Cyprus</option>
+					<option value="CZ">Czech Republic</option>
+					<option value="DK">Denmark</option>
+					<option value="DO">Dominican Republic</option>
+					<option value="EC">Ecuador</option>
+					<option value="EE">Estonia</option>
+					<option value="FI">Finland</option>
+					<option value="FR">France</option>
+					<option value="DE">Germany</option>
+					<option value="GR">Greece</option>
+					<option value="HK">Hong Kong</option>
+					<option value="HU">Hungary</option>
+					<option value="IS">Iceland</option>
+					<option value="IN">India</option>
+					<option value="IE">Ireland</option>
+					<option value="IL">Israel</option>
+					<option value="IT">Italy</option>
+					<option value="JM">Jamaica</option>
+					<option value="JP">Japan</option>
+					<option value="LV">Latvia</option>
+					<option value="LT">Lithuania</option>
+					<option value="LU">Luxembourg</option>
+					<option value="MY">Malaysia</option>
+					<option value="MT">Malta</option>
+					<option value="MX">Mexico</option>
+					<option value="NL">Netherlands</option>
+					<option value="NZ">New Zealand</option>
+					<option value="NO">Norway</option>
+					<option value="PL">Poland</option>
+					<option value="PT">Portugal</option>
+					<option value="SG">Singapore</option>
+					<option value="SK">Slovakia</option>
+					<option value="SI">Slovenia</option>
+					<option value="ZA">South Africa</option>
+					<option value="KR">South Korea</option>
+					<option value="ES">Spain</option>
+					<option value="SE">Sweden</option>
+					<option value="CH">Switzerland</option>
+					<option value="TW">Taiwan</option>
+					<option value="TH">Thailand</option>
+					<option value="TR">Turkey</option>
+					<option value="GB" selected="selected">United Kingdom</option>
+					<option value="UY">Uruguay</option>
+					<option value="VE">Venezuela</option>
+				</select>
+            </div>
+     </div>
+  </div>
+<?php endif; ?>
+
+	<div id="submit">
+		<input type="submit" value="Submit payment" class="submit">
+    </div>
+</form>

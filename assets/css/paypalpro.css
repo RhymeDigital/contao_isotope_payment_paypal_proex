@@ -1,0 +1,71 @@
+.mod_iso_checkout img {width:auto;}
+
+.paypalpro label {
+	width:100%;
+	margin-bottom:0.5em;
+	cursor:pointer;
+}
+
+.mod_iso_checkout .paypalpro .field {
+    display: inline-block;
+    float: left;
+    padding: 0 2.5% 0 0;
+    width: 47.5%;
+}
+
+.cc_info_header {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    color: #666666;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+.cc_info_header img {
+	float:right;
+}
+
+.cc_info_body {
+    padding-top: 8px;
+}
+
+.cc_info {
+    background-color: #FFFFFF;
+    display: block;
+    visibility: visible;
+}
+
+#submit {
+    border-top: 1px solid #CCCCCC;
+    clear: both;
+    display: inline-block;
+    margin-top: 2em;
+    padding-right: 640px;
+    padding-top: 1em;
+    text-align: right;
+}
+
+.input {
+    color: #000000;
+}
+
+.paypalpro textarea, .paypalpro select, .paypalpro input {
+    float: left;
+    margin-bottom: 1em;
+    max-width: 21.8em;
+    min-width: 10em;
+    width: 100%;
+}
+
+.paypalpro .ExpMonth, .paypalpro .ExpYear {
+    margin-right: 5%;
+    min-width: 5em;
+    width: 18%;
+}
+
+.paypalpro input.security, .paypalpro input.issue {
+    min-width: 5em;
+    width: 18%;
+}
